@@ -1,10 +1,10 @@
-const CACHE = 'monaghan-cube-v2';
+const CACHE = 'monaghan-cube-v3';
 
 self.addEventListener('message', e => {
   if (e.data && e.data.type === 'SKIP_WAITING') self.skipWaiting();
 });
 
-const PRECACHE = ['./', './index.html', './manifest.json', './logo.webp', './icon-192.png', './icon-512.png'];
+const PRECACHE = ['./', './index.html', './manifest.json', './logo.webp', './icon-192v2.png', './icon-512v2.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(PRECACHE)));
