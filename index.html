@@ -1251,16 +1251,11 @@ html.dark .edit-field select { background:rgba(200,169,122,0.08); color:#ede8e0;
   position:fixed; left:0; right:0; z-index:49;
   background:var(--header-bg); backdrop-filter:blur(10px);
   border-bottom:1px solid var(--border);
-  overflow-x:auto; overflow-y:hidden;
-  padding:6px 12px 6px 12px; gap:6px;
-  scrollbar-width:none; -webkit-overflow-scrolling:touch;
-  white-space:nowrap;
+  overflow:hidden;
+  padding:5px 8px; gap:4px;
+  justify-content:center;
 }
-#mobile-age-strip::after {
-  content:''; flex-shrink:0; width:12px;
-}
-#mobile-age-strip::-webkit-scrollbar { display:none; }
-#mobile-age-strip .age-btn { display:inline-flex; flex-shrink:0; font-size:0.7rem; padding:4px 10px; }
+#mobile-age-strip .age-btn { flex:1 1 0; text-align:center; font-size:0.68rem; padding:5px 2px; min-width:0; white-space:nowrap; }
 
 /* ── OVERFLOW MENU (mobile) ── */
 #overflow-toggle { display:none; }
@@ -1331,7 +1326,7 @@ html.dark .edit-field select { background:rgba(200,169,122,0.08); color:#ede8e0;
 
   /* Mobile age strip — top set dynamically by JS updateLayout() */
   #mobile-age-strip { display:flex; top:60px; }
-  #mobile-age-strip .age-btn { font-size:0.75rem; padding:8px 14px; min-height:40px; }
+  #mobile-age-strip .age-btn { font-size:0.68rem; padding:5px 2px; min-height:34px; }
 
   /* Scene top fallback — JS updateLayout() overrides with exact value */
   #scene, #particles { top:100px; }
@@ -1477,11 +1472,11 @@ html.dark #intro-overlay { background:rgba(0,0,0,0.62); }
 <!-- ══ MOBILE AGE STRIP ══ -->
 <div id="mobile-age-strip">
   <button class="age-btn active" data-age="toddler">Toddler</button>
-  <button class="age-btn" data-age="preschool">Pre Primary</button>
-  <button class="age-btn" data-age="lower">Lower Elementary</button>
-  <button class="age-btn" data-age="upper">Upper Elementary</button>
-  <button class="age-btn" data-age="middle">Middle School</button>
-  <button class="age-btn" data-age="high">Grounds Team</button>
+  <button class="age-btn" data-age="preschool">Pre Pri</button>
+  <button class="age-btn" data-age="lower">Lower El</button>
+  <button class="age-btn" data-age="upper">Upper El</button>
+  <button class="age-btn" data-age="middle">Middle</button>
+  <button class="age-btn" data-age="high">Staff</button>
 </div>
 
 <!-- ══ SCENE ══ -->
@@ -1949,15 +1944,15 @@ const VEGGIES = [
     observation:'Which parts of the kale plant do we eat? The leaf, stem, or both?'
   },
   {
-    season:'autumn', name:'Cabbage', emoji:'🥬',
-    months:'February – June', duration:'70–100 days', difficulty:2,
-    soil:'Firm, rich, slightly alkaline soil.',
-    water:'Consistent watering to prevent splitting; keep irrigating as natural rain drops away.',
-    companions:'Onions, Dill, Sage',
-    pest:'Fine netting against cabbage moth; garlic spray.',
-    harvest:'Cut at base when head is firm and dense.',
-    ages:{ toddler:'Feel how heavy and firm the head is!', preschool:'Peel a leaf — what do you notice?', lower:'Measure head diameter weekly for the last month.', upper:'Research why cabbage leaves are waxy and what it prevents.', middle:'Explore the Brassica family and shared traits.', high:'Study glucosinolate chemistry and pest deterrence mechanisms.' },
-    observation:'Peel away one outer leaf. Can you see the layers wrapping tighter and tighter toward the centre?'
+    season:'autumn', name:'Spring Onions', emoji:'🌿',
+    months:'March – September', duration:'60–90 days', difficulty:1,
+    soil:'Loose, well-composted soil with good drainage.',
+    water:'Keep evenly moist — light watering every second day.',
+    companions:'Carrots, Lettuce, Beetroot',
+    pest:'Interplant with carrots to confuse onion fly; avoid overwatering.',
+    harvest:'Pull when pencil-thick, or snip green tops and let regrow.',
+    ages:{ toddler:'Smell the green top — what does it remind you of?', preschool:'Pull one out gently. How long are the white roots?', lower:'Plant a row and measure which grows tallest in 3 weeks.', upper:'Compare growth rate of sets vs seeds — record your data.', middle:'Investigate why onion family plants make your eyes water.', high:'Research allicin production and its antibacterial properties.' },
+    observation:'Spring onions keep growing after you cut the green tops. Mark the cut with a dot of paint and watch — how many days until new growth passes the mark?'
   },
   {
     season:'autumn', name:'Broccoli', emoji:'🥦',
@@ -2071,15 +2066,15 @@ const VEGGIES = [
     observation:'Count a plant\'s leaves on Monday. Count again on Friday. How many new ones appeared, even without rain?'
   },
   {
-    season:'winter', name:'Onions', emoji:'🧅',
-    months:'April – June', duration:'100–150 days', difficulty:2,
-    soil:'Well-drained, fertile soil.',
-    water:'Reduce as tops begin to fall.',
-    companions:'Carrots, Beets, Chamomile',
-    pest:'Good air circulation; avoid overwatering.',
-    harvest:'When tops fall and yellow; cure in the sun for 2 weeks.',
-    ages:{ toddler:'Peel the crinkly outside layer!', preschool:'How many rings does an onion have?', lower:'Grow onion sets vs seeds — compare.', upper:'Observe onion cells under a microscope.', middle:'Study cell wall structure using onion epidermis slides.', high:'Conduct osmosis experiments using onion cells in different salt solutions.' },
-    observation:'Cut an onion in half. Each ring is the swollen base of one leaf. Count the rings, then count the leaves on a growing onion — do the numbers match?'
+    season:'winter', name:'Origanum', emoji:'🌿',
+    months:'Year-round (plant April – August)', duration:'Perennial — harvest from 8 weeks', difficulty:1,
+    soil:'Well-drained, slightly sandy soil; tolerates poor soil.',
+    water:'Drought-tolerant once established — water sparingly.',
+    companions:'Tomatoes, Peppers, Beans, Broccoli',
+    pest:'Naturally pest-repellent; its oils deter aphids and whitefly.',
+    harvest:'Snip stems just above a leaf pair; harvest before flowers open for strongest flavour.',
+    ages:{ toddler:'Rub a leaf between your fingers — sniff! What does it smell like?', preschool:'Pick five leaves and press them onto paper. Can you see the shape?', lower:'Dry a bunch upside-down for a week — weigh fresh vs dried.', upper:'Compare origanum, marjoram and thyme — what is the same and different?', middle:'Research essential oils: why does origanum smell so strong?', high:'Extract origanum oil using steam distillation and test its antibacterial effect on bread mould.' },
+    observation:'Look closely at the tiny leaves with a magnifying glass. Can you see the oil glands — little shiny dots on the surface? Those hold the flavour and the scent.'
   },
   // ── SPRING (9) ── Sep-Nov: last frost fades by mid-September, temperatures climb fast, and the first hailstorms of the new rainy season arrive
   {
